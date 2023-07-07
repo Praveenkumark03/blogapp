@@ -38,6 +38,7 @@ static async userupdate(id,upDetails){
       { _id:id},
       {$set: upDetails },
       { returnOriginal: false }
+      
     );
 
     } catch (err) {
