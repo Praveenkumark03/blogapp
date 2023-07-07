@@ -25,13 +25,25 @@ static async checkuser(email)
 static async generatetoken(tokendata,key)
 {
     try{
-        return await t.sign(tokendata,key,{expiresIn:'2h'})
+        return await t.sign(tokendata,key,{expiresIn:'1h'})
     }
     catch(err)
     {
         console.log(err);
     }
 }
+static async userupdate(id,upDetails){
+    try {
+        return await usermodule.updateMany(
+      { _id:id},
+      {$set: upDetails },
+      { returnOriginal: false }
+    );
 
+    } catch (err) {
+        console.log(err);
     }
+}
+    }
+    
     module.exports=userservice

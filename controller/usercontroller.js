@@ -36,10 +36,24 @@ const login =async(req,res)=>{
         status:true,
         token:token
     })
+    
 }
+
     catch(err)
     {
         console.log(err);
     }
+    
 }
-module.exports={register,login}
+const update=async(req,res)=>{
+try {
+   const {id,upDetails}=req.body
+   const up= await controller.userupdate(id,upDetails)
+   res.json(up)
+} catch (error) {
+    console.log(error);
+}
+
+
+}
+module.exports={register,login,update}
