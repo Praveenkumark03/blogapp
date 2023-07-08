@@ -55,6 +55,7 @@ const login =async(req,res)=>{
 const update=async(req,res)=>{
 try {
    const {id,upDetails}=req.body
+   
    const up= await controller.userupdate(id,upDetails)
    res.json(up)
 } catch (error) {

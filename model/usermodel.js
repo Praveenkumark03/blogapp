@@ -33,5 +33,17 @@ userschema.pre('save', async function () {
         console.log(err)
     }
 })
+userschema.pre('updateMany', async function () {
+    try {
+        const data = this;
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(data._update.$set.password, salt);
+        data._update.$set.password = hash;
+        console.log(data._update.$set.password)
+    }
+    catch (err) {
+        console.log(err)
+    }
+})
 const usermodule=mongo.model('notifications',userschema)
 module.exports=usermodule
