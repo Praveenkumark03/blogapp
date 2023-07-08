@@ -28,13 +28,20 @@ const login =async(req,res)=>{
     }
     let tokendata={
         id:user._id,
-        email:user.email
+        email:user.email,
+        phone: user.phoneno,
+        name:user.name
+    
+
     }
 
     const token=await controller.generatetoken(tokendata,'secretkey');
     res.status(200).json({
         status:true,
         token:token
+        
+
+
     })
     
 }
