@@ -39,7 +39,7 @@ userschema.pre('updateMany', async function () {
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(data._update.$set.password, salt);
         data._update.$set.password = hash;
-        console.log(data._update.$set.password)
+        //console.log(data._update.$set.password)
     }
     catch (err) {
         console.log(err)

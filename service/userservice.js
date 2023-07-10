@@ -37,7 +37,7 @@ static async userupdate(id,upDetails){
         return await usermodule.updateMany(
       { _id:id},
       {$set: upDetails },
-      { returnOriginal: false }
+      { returnOriginal: true }
       
     );
 
